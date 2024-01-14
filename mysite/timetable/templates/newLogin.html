@@ -1,0 +1,51 @@
+{% load static %}
+{% load widget_tweaks %}
+{% load socialaccount %} {% providers_media_js %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{%  static 'login.css' %}">
+    <link rel="stylesheet" href="{%  static 'input.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>로그인</title>
+
+    <style>
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="hello">
+                <div class="hello-wrapper">
+                    <div class="hero">
+                        <h1>Time<span class="bold">Table</span></h1>
+                        <h3>월,화,수,목,금 <br> 요일별로 <span class="bold">시간표</span> 등록하세요!</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="login-form">
+                <form method="POST">
+                    <div class="form-wrapper">
+                        <a href="{% provider_login_url 'kakao' %}" class="login-btn">
+                            <img src="{% static 'img/kakao/kakao_login_medium_narrow.png' %}" class="kakao">
+                        </a>
+                        <br>
+                        <a href="{% provider_login_url 'naver' %}" class="login-btn">
+                            <img src="{% static 'img/naver/btnG_완성형.png' %}" class="naver">
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
