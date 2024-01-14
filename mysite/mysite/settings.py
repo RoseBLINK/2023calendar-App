@@ -64,7 +64,7 @@ MIDDLEWARE = [
 ]
 
 SOCIALACCOUNT_LOGIN_ON_GET = True
-LOGIN_REDIRECT_URL = '/timetable/login'
+LOGIN_REDIRECT_URL = '/timetable/main'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/timetable/login'
 ACCOUNT_LOGOUT_ON_GET = True
 

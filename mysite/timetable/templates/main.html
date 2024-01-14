@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{%  static 'card.css' %}">
+    <title>메인</title>
+{% endblock %}
+
+{% block topnav %}
+<!--    {% if user.is_authenticated %}-->
+<!--        <div class="top-bar">-->
+<!--            <div class="wrapper">-->
+<!--                <h3>안녕하세요 {{ user.last_name }}{{ user.first_name }}님</h3>-->
+<!--                <a href="/logout">로그아웃</a>-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--    {% endif %}-->
+{% endblock %}
+
+{% block content %}
+
+
+<!--        {% for subject in subjects }-->
+<table>
+    {% for hour in hourRange %}
+    <tr>
+        <td>
+            <div class="activity-card" style="background-color:{{ act.color }};" >
+                <div class="card-wrapper">
+                    {{i|add:9}}:00
+                </div>
+            </div>
+        </td>
+        {% for day in dayRange %}
+
+<!--   if dayRange -> [0~4] 0 : 월 1: 화요일 2: 수요일 3 : 목요일 : 4 : 금요일 wed,수요일     -->
+        <td>
+            <div class="activity-card" style="background-color:{{ act.color }};" >
+                <div class="card-wrapper">
+                    {{ % if schedules.subject_day <-> day or schedules.subject_starttime <-> hour }}
+                    {{ schedules.subject_name }}
+                    { % endif %}
+<!--                    if day hour ==-->
+<!--                    {{subjectname}}-->
+<!--                    {{ i }}-->
+                </div>
+            </div>
+        </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+<!--    {% for act in acts %}-->
+<!--        <div class="activity-card" style="background-color:{{ act.color }};" >-->
+<!--            <div class="card-wrapper">-->
+<!--                <form class="delete-form" action="{% url 'delete' act.day act.id %}" method="post">-->
+<!--                    {% csrf_token %}-->
+<!--                    <button class="delete-button" type="submit">-->
+<!--                        <i class="material-icons">-->
+<!--                        close-->
+<!--                        </i>-->
+<!--                    </button>-->
+<!--                </form>-->
+<!--                <div class="time">-->
+<!--                    <span>{{ act.fromTime }}</span>-->
+<!--                    <span>~</span>-->
+<!--                    <span>{{ act.toTime }}</span>-->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    <h1>{{ act.content }}</h1>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    {% endfor %}-->
+<!--    <a class="add-card" href="/make" target="_blank">-->
+<!--        <i class="material-icons">-->
+<!--        add-->
+<!--        </i>-->
+<!--    </a>-->
+{% endblock %}
